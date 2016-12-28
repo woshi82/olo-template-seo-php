@@ -20,6 +20,7 @@ module.exports = generators.Base.extend({
         this.copy('.editorconfig', '.editorconfig');
         this.copy('gitignore', '.gitignore');
 
+        this.directory('views', 'views');
         this.directory('server', 'server');
         this.directory('libs', 'libs');
         this.directory('assets', 'assets');
