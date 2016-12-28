@@ -6,9 +6,9 @@
     "main": "server/index.js",
     "type": "<%= oloType %>",
     "scripts": {
-        "watch": "olo w",
-        "start": " olo s",
-        "release": " olo r prod -cd ../prod "
+        "w": "olo w",
+        "s": " olo s",
+        "prod": " olo r prod -cd ../prod "
     },
     "keywords": [
         "activity",
