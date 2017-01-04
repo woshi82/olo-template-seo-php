@@ -18,18 +18,13 @@ module.exports = generators.Base.extend({
             this.log(chalk.red('Error'), 'arg `cmpName` NOT found!');
             return;
         }
-        // 固定入口文件为 `cmp/${cmpName}/index.${handlebars|js|scss}`
-        
-        // this.cmpName = _.kebabCase(this.cmpName);
+
         var componentPath = 'cmp/' + this.cmpName;
         var cmpName = componentPath  + '/' + this.cmpName;
-        // this.directory('images', componentPath + '/images');
         this.template('_cmp.js', cmpName + '.js');
         this.template('_cmp.handlebars', cmpName + '.handlebars');
         this.template('_cmp.scss', cmpName + '.scss');
         this.template('_data-mock.js', cmpName + '-mock.js');
-        // package.json 方便 require
-        // this.template('_package.json', componentPath + '/package.json');
     },
     // 安装全部组件
     _bowerInstallAllCmp: function () {
@@ -43,9 +38,9 @@ module.exports = generators.Base.extend({
             this.log(chalk.red('Error'), 'arg `cmpName` NOT found!');
             return;
         }
-        // git 仓库 component
-        cmpnt = 'git@github.com:general-cmps/'+cmpnt ;
-        // 通过 bower 下载
+        // cmpnt = 'git@github.com:general-cmps/'+cmpnt ;
+        cmpnt = 'http://git.biketo.com.cn/FE-COM/'+ cmpnt +'.git' ;
+        
         this.bowerInstall(cmpnt, {
             save: true
         },function(e){
